@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  azp-agent:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-01-28T19:41:12.810464869Z"
+    description: A Helm chart for Kubernetes
+    digest: 1c7e3195f97209bc06b1f8b5588641706ffedcc9f6dee8ffa97e082a9426903e
+    name: azp-agent
+    type: application
+    urls:
+    - https://github.com/bondblaze/azp-agent/releases/download/azp-agent-1.0.0/azp-agent-1.0.0.tgz
+    version: 1.0.0
+generated: "2026-01-28T19:41:12.810470607Z"
