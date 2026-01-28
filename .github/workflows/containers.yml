@@ -1,0 +1,30 @@
+name: containers
+on:
+  push:
+    branches:
+      - main
+
+env:
+  REGISTRY: ghcr.io/${{ github.repository_owner }}
+
+jobs:
+  builds-linux:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: "{{defaultContext}}:docker"
+          push: true
+          tags: ${{ env.REGISTRY }}/azp-agent:${{ github.sha }}
+          file: Dockerfile
