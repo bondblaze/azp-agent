@@ -18,6 +18,7 @@ RUN mv hcl2json /usr/bin/hcl2json
 
 # Install Azure CLI
 RUN curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+RUN az aks install-cli
 
 WORKDIR /azp/
 
